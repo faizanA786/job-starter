@@ -1,0 +1,17 @@
+retail:
+retail assistant
+sales assistant
+supermarket assistant
+stockroom assistant
+customer service
+
+hospitality:
+kitchen assistant
+kitchen porter
+catering assistant
+waiter
+team member
+
+warehouse:
+picker/packer
+stockroom assistant
