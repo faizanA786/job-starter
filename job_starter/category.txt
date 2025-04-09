@@ -15,3 +15,4 @@ team member
 warehouse:
 picker/packer
 stockroom assistant
+warehouse operative

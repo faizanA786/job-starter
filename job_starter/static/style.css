@@ -1,0 +1,13 @@
+.container {
+    border: 6px solid black;
+    margin: 25px;
+}
+
+.data {
+    margin: 10px;
+}
+
+.info {
+    display: flex;
+    gap: 20px
+}
