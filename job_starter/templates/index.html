@@ -7,30 +7,74 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    {% for job in jobs %}
-        <div class="container">
-            <div class="data">
-                <div class="info">
-                    <p>{{ job["date"] }}</p> <!--Date-->
-                    <p>{{ job["location"] }}</p> <!--Location-->
+    <div class="wrapper">
+        <div class="grid">
 
-                    {% if job["contract_time"] is not none %} <!--Job Type-->
-                        {% if job["contract_time"] == "full_time" %}
-                            <p>Part Time</p> 
-                        {% elif job["contract_time"] == "part_time" %}
-                            <p>Full Time</p> 
-                        {% endif %}
-                    {% else %}
-                        <p>Job Type Unknown</p>
-                    {% endif %}
+            <div class="filter-container">
+                <div class="filter-data">
+                    <h1>Job Starter</h1>
+                    <div class="filter">
+                        <p>For people who have never had the opportunity to gain experience, struggling to break into the job market. This website provides roles that are the easiest to break into.</p>
+                        <p>Jobs are sorted by their date posted.</p>
+                    </div>
+
+                    <hr>
+                    <div class="filter">
+                        <h2>Location</h2>
+                        <p>London</p>
+                        <p></p>
+                    </div>
+
+                    <hr>
+                    <div class="filter">
+                        <h2>Industry</h2>
+                        <p>Retail</p>
+                        <p>Hospitality</p>
+                        <p>Logistics</p>
+                    </div>
+
+                    <hr>
+                    <h2>Job Type</h2>
+                    <div class="filter">
+                        <p>Full Time</p>
+                        <p>Part Time</p>
+                    </div>
+                    
+                    <hr>
+                    <i>Powered by Adzuna API</i>
                 </div>
+            </div>
 
-                <p>{{ job["title"] }}</p> <!--Title-->
-                <p>{{ job["description"] }}</p> <!--Desc-->
-            
-                <p>Apply here: <a href="{{ job['url'] }}">{{ job["url"] }}</a></p> <!--URL-->
+            <div>
+                {% for job in jobs %}
+                <div class="job-container">
+                    <div class="job-data">
+                        <div class="job-info">
+                            <p>{{ job["title"] }}</p> <!--Title-->
+                            <p>{{ job["company"] }}</p> <!--Desc-->
+                        
+                            <p><a href="{{ job['url'] }}" target="_blank">Apply Now!</a></p> <!--URL-->
+                        </div>
+                        <div class="job-info">
+                            <p>Date Posted: {{ job["date"] }}</p> <!--Date-->
+                            <p>{{ job["location"] }}</p> <!--Location-->
+
+                            {% if job["contract_time"] is not none %} <!--Job Type-->
+                                {% if job["contract_time"] == "full_time" %}
+                                    <p>Part Time</p> 
+                                {% elif job["contract_time"] == "part_time" %}
+                                    <p>Full Time</p> 
+                                {% endif %}
+                            {% else %}
+                                <p>Job Type Unknown</p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
+    </div>
 </body>
 </html>

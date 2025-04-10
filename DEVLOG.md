@@ -1,3 +1,14 @@
+# DATE HERE
+- I was testing the webpage and i realised that job links that had land/ad instead of details would redirect to page not found
+- I was comparing links properly, like before trimming it and after trimming, it works when it wasnt trimmed
+- I trimmed it because it was using my API ID, and since its my first time using APIs, i was cautious about using it in the link
+- I researched online and apparently its not dangerous, its the API key thats critical, which I made sure to include in my gitgnore file before pushing it to the repo
+- I went ahead and looked up job board design and i found one i liked in particular, its nice and slick
+- Filters on the left, job ads on the right
+- Im also going to try and make it so that the date would say 'Today/One day ago' etc rather than giving the actual date out for better user experience
+- I've changed the job location to only east as well since jobs not in east are like hours away from me
+- Ive started to design the webpage now using CSS
+
 # 09/04/2025
 - Theres a bit of a problem, i read on their page that adzuna api limits requests to only 250 a day, i can easily hit the rate limit from the way im fetching job ads
 - i researched techniques to deal with this and i came across a technique

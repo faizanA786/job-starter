@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
-open_url = "job_starter/prefetch/hospitality_data.json"
+open_url = "job_starter/prefetch/retail_data.json"
 
 @app.route("/")
 def add_jobs():
@@ -10,6 +10,9 @@ def add_jobs():
         jobs = json.load(f)
         html = render_template("index.html", jobs=jobs)
     return html
+
+def get_date():
+    return None
 
 if __name__ == "__main__":
     app.run(debug=True)

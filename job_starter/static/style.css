@@ -1,13 +1,60 @@
-.container {
+@font-face {
+    font-family: funnel_sans;
+    src: url("fonts/FunnelSans-VariableFont_wght.ttf");
+}
+
+body {
+    background-image: url("images/bg.png");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: funnel_sans;
+}
+
+.filter-data {
+    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.95), rgba(255, 255, 255, 0.95));
+    text-align: center;
+    margin: 0.25rem;
+}
+
+.filter {
+    text-align: left;
+    margin: 2rem
+}
+
+.job-container {
+    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.95), rgba(255, 255, 255, 0.95));
     border: 6px solid black;
     margin: 25px;
 }
 
-.data {
+.job-data {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
     margin: 10px;
 }
 
-.info {
+.job-info {
     display: flex;
-    gap: 20px
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 3rem;
+}
+
+.wrapper {
+    display: flex;
+    width: 90%;
+}
+
+p {
+    font-size: 1.5vw;
 }
