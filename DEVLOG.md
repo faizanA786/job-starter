@@ -1,4 +1,11 @@
-# DATE HERE
+# 11/04/2025
+- I might change how i store job ads, rather than storing it in a json file I might just use a local sqlite database since I used it before for my blackjack project (And to improve my profiecency)
+- Even though im not collecting data, im going to add a privacy policy for good measure
+- Also a TOS soon
+- Right now i just styled the website even further
+- Also made it so by default, entering the site displays all the jobs in all industries
+
+# 10/04/2025
 - I was testing the webpage and i realised that job links that had land/ad instead of details would redirect to page not found
 - I was comparing links properly, like before trimming it and after trimming, it works when it wasnt trimmed
 - I trimmed it because it was using my API ID, and since its my first time using APIs, i was cautious about using it in the link

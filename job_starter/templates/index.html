@@ -5,55 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Starter</title>
     <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js/visited.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="grid">
 
-            <div class="filter-container">
-                <div class="filter-data">
-                    <h1>Job Starter</h1>
-                    <div class="filter">
-                        <p>For people who have never had the opportunity to gain experience, struggling to break into the job market. This website provides roles that are the easiest to break into.</p>
-                        <p>Jobs are sorted by their date posted.</p>
-                    </div>
-
-                    <hr>
-                    <div class="filter">
-                        <h2>Location</h2>
-                        <p>London</p>
-                        <p></p>
-                    </div>
-
-                    <hr>
-                    <div class="filter">
+            <div class="left-column">
+                <div class="filter-container" id="filter-container">
+                    <div class="filter-data">
+                        <h1>Job Starter</h1>
+                        <div class="filter-desc">
+                            <p>Explore entry level job opportunities designed for those looking to start their careers in London.</p>
+                            <p>Jobs are fetched once a day at 00:00 and are sorted by their date posted.</p>
+                            <div class="links">
+                                <p><a href="">Terms & Conditions</a></p>
+                                <p><a href="">Privacy Policy</a></p>
+                                <p><a href="">Source Code</a></p>
+                            </div>
+                        </div>
+    
+                        <hr>
                         <h2>Industry</h2>
-                        <p>Retail</p>
-                        <p>Hospitality</p>
-                        <p>Logistics</p>
+                        <div class="filter">
+                            <div class="filter-input">
+                                <input type="checkbox" checked>
+                                <p>Retail ({{ retail|length }})</p>
+                            </div>
+                            <div class="filter-input">
+                                <input type="checkbox" checked>
+                                <p>Logistics ({{ logistics|length }})</p>
+                            </div>
+                            <div class="filter-input">
+                                <input type="checkbox" checked>
+                                <p>Hospitality ({{ hospitality|length }})</p>
+                            </div>
+                        </div>
+    
+                        <hr>
+                        <h2>Job Type</h2>
+                        <div class="filter">
+                            <div class="filter-input">
+                                <input type="checkbox" checked>
+                                <p>Full Time</p> 
+                            </div>
+                            <div class="filter-input">
+                                <input type="checkbox" checked>
+                                <p>Part Time</p>
+                            </div>
+                        </div>
+    
+                        <hr>
+                        <i>Powered by Adzuna API</i>
                     </div>
-
-                    <hr>
-                    <h2>Job Type</h2>
-                    <div class="filter">
-                        <p>Full Time</p>
-                        <p>Part Time</p>
-                    </div>
-                    
-                    <hr>
-                    <i>Powered by Adzuna API</i>
+                </div>
+                <div class="to-top">
+                    <p><a href="#filter-container">Back to Top</a></p>
                 </div>
             </div>
 
             <div>
-                {% for job in jobs %}
+                {% for job in logistics %}
                 <div class="job-container">
                     <div class="job-data">
                         <div class="job-info">
-                            <p>{{ job["title"] }}</p> <!--Title-->
+                            <p><b>{{ job["title"] }}</b></p> <!--Title-->
                             <p>{{ job["company"] }}</p> <!--Desc-->
                         
-                            <p><a href="{{ job['url'] }}" target="_blank">Apply Now!</a></p> <!--URL-->
+                            <p><a href="{{ job['url'] }}" class="job-link" target="_blank">Apply Now!</a></p> <!--URL-->
+                        </div>
+                        <div class="job-info">
+                            <p>Date Posted: {{ job["date"] }}</p> <!--Date-->
+                            <p>{{ job["location"] }}</p> <!--Location-->
+
+                            {% if job["contract_time"] is not none %} <!--Job Type-->
+                                {% if job["contract_time"] == "full_time" %}
+                                    <p>Part Time</p> 
+                                {% elif job["contract_time"] == "part_time" %}
+                                    <p>Full Time</p> 
+                                {% endif %}
+                            {% else %}
+                                <p>Job Type Unknown</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% for job in retail %}
+                <div class="job-container">
+                    <div class="job-data">
+                        <div class="job-info">
+                            <p><b>{{ job["title"] }}</b></p> <!--Title-->
+                            <p>{{ job["company"] }}</p> <!--Desc-->
+                        
+                            <p><a href="{{ job['url'] }}" class="job-link" target="_blank">Apply Now!</a></p> <!--URL-->
                         </div>
                         <div class="job-info">
                             <p>Date Posted: {{ job["date"] }}</p> <!--Date-->
@@ -73,6 +119,34 @@
                     </div>
                 </div>
                 {% endfor %}
+
+                {% for job in hospitality %}
+                <div class="job-container">
+                    <div class="job-data">
+                        <div class="job-info">
+                            <p><b>{{ job["title"] }}</b></p> <!--Title-->
+                            <p>{{ job["company"] }}</p> <!--Desc-->
+                        
+                            <p><a href="{{ job['url'] }}" class="job-link" target="_blank">Apply Now!</a></p> <!--URL-->
+                        </div>
+                        <div class="job-info">
+                            <p>Date Posted: {{ job["date"] }}</p> <!--Date-->
+                            <p>{{ job["location"] }}</p> <!--Location-->
+
+                            {% if job["contract_time"] is not none %} <!--Job Type-->
+                                {% if job["contract_time"] == "full_time" %}
+                                    <p>Part Time</p> 
+                                {% elif job["contract_time"] == "part_time" %}
+                                    <p>Full Time</p> 
+                                {% endif %}
+                            {% else %}
+                                <p>Job Type Unknown</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>
