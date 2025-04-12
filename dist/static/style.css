@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url("images/bg.png");
+    background-image: url("images/bg2.webp");
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -28,7 +28,17 @@ body {
 }
 
 .links {
-    margin: 0.25rem;
+    text-align: left;
+    margin: 0.5rem;
+    p {
+        font-size: 1.25vw;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+i {
+    font-size: 1.5vw;
 }
 
 a {
@@ -41,17 +51,18 @@ a:hover {
 
 .to-top {
     text-align: center;
-    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.95), rgba(255, 255, 255, 0.95));
+    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.9), rgba(255, 255, 255, 0.9));
     margin: 0 auto;
     margin-bottom: 2rem;
-    width: 50%;
+    width: 40%;
+    border-radius: 0.5rem;
     p {
         margin: 0;
     }
 }
 
 .filter-data {
-    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.95), rgba(255, 255, 255, 0.95));
+    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.9), rgba(255, 255, 255, 0.9));
     text-align: center;
     margin: 0.5rem;
     p {
@@ -80,8 +91,15 @@ a:hover {
 
 }
 
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #4caf50; 
+}
+
 .job-container {
-    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.95), rgba(255, 255, 255, 0.95));
+    background: linear-gradient(to bottom, rgba(242, 244, 248, 0.9), rgba(255, 255, 255, 0.9));
+    border-radius: 1rem;
     margin: 25px;
 }
 
@@ -98,6 +116,10 @@ a:hover {
     p {
         margin: 0.8rem;
     }
+}
+
+.retail, .logistics, .hospitality {
+    display: block;
 }
 
 .grid {

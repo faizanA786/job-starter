@@ -1,3 +1,15 @@
+# 12/04/2025
+- For the filters, Im use checkboxes, where they will have event listners that will hide industry sections based of whether their checked or not using a combination of css style hidden and js
+- I had to use display instead of visibility because simply hiding it doesnt actually take it out the html, it still taking up space but would just be invisible
+- I just spent the last hour trying to figure out why my filter by contract time script wasnt working - id check fulltime checkbox, but then it would display part time jobs and hide full time?? I just realised its because the p tag within the html element was flipped
+- If contract time was full, set p to part time and vice versa
+- Silly mistake, but i know now to be more vigilant
+- I used google maps URL scheme to now approximate distances between homes and work sites
+- Ive also decided to move away from using railway as a host, id rather make this a static site otherwise id need a server to hold the backend, and no free alternative host to do that
+- I can use netlify if I make it static instead
+- So i made a new distrbution folder to hold the results of the creation of the html
+- I also started to think about how i could use colours in the fonts to enhance UX
+
 # 11/04/2025
 - I might change how i store job ads, rather than storing it in a json file I might just use a local sqlite database since I used it before for my blackjack project (And to improve my profiecency)
 - Even though im not collecting data, im going to add a privacy policy for good measure

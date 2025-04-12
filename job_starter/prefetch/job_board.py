@@ -7,7 +7,7 @@ class JobBoard:
     def fetch_jobs(roles, page=1):
         jobs_seen = set()
         jobs = []
-        exclude = "manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior"
+        exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head"
 
         print("checking page " + str(page))
         for i in range(0, len(roles)):
