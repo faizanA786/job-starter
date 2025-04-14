@@ -12,20 +12,27 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="header">
+            <div class="header-info">
+                <div class="title">
+                    <img src="../../dist/favicon.webp">
+                    <h1>Job Starter</h1>
+                </div>
+                <div class="links">
+                    <p><a href="">Terms & Conditions</a></p>
+                    <p><a href="">Privacy Policy</a></p>
+                    <p><a href="https://github.com/faizanA786/job-starter" target="_blank">Source Code</a></p>
+                </div>
+            </div>
+        </div>
         <div class="grid">
 
             <div class="left-column">
                 <div class="filter-container" id="filter-container">
                     <div class="filter-data">
-                        <div class="links">
-                            <p><a href="">Terms & Conditions</a></p>
-                            <p><a href="">Privacy Policy</a></p>
-                            <p><a href="https://github.com/faizanA786/job-starter" target="_blank">Source Code</a></p>
-                        </div>
-                        <hr>
-                        <h1>Job Starter</h1>
+                        <h1>Job Board</h1>
                         <div class="filter-desc">
-                            <p>Explore entry level job opportunities designed for those looking to start their careers in London.</p>
+                            <p>Explore entry level roles based in London, for those that have never worked before and would like to gain experience.</p>
                             <p>Job adverts are fetched once a day at 00:00 from numerous sources and are at most 3 days old.</p>
                         </div>
     
@@ -50,6 +57,10 @@
                         <h2>Job Type</h2>
                         <div class="filter">
                             <div class="filter-input">
+                                <input type="checkbox" id="unspecified" checked>
+                                <p>Unspecified</p> 
+                            </div>
+                            <div class="filter-input">
                                 <input type="checkbox" id="full_time" checked>
                                 <p>Full Time</p> 
                             </div>
@@ -60,7 +71,10 @@
                         </div>
     
                         <hr>
-                        <i>Jobs by<a href="http://www.adzuna.co.uk" target="_blank"> Adzuna </a>API</i>
+                        <div class="credit">
+                            <img src="../../dist/static/images/logo-adzuna.svg">
+                            <i>Jobs by <a href="http://www.adzuna.co.uk" target="_blank">Adzuna</a> API</i>
+                        </div>
                     </div>
                 </div>
                 <div class="to-top">

@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from env import API_ID
 from env import API_KEY
 
@@ -8,6 +9,9 @@ class JobBoard:
         jobs_seen = set()
         jobs = []
         exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head"
+
+        today = datetime.today()
+        day = today.day
 
         print("checking page " + str(page))
         for i in range(0, len(roles)):
@@ -19,8 +23,15 @@ class JobBoard:
                 if job["id"] not in jobs_seen:
                     new_job = {}
 
-                    date = job["created"].split("T")[0]
-                    new_job["date"] = date
+                    day_added = (job["created"].split("T")[0]).split("-")[-1] #only get the day of date
+                    if int(day_added) == day:
+                        new_job["date"] = "Today"
+                    elif int(day_added) == day-1:
+                        new_job["date"] = "Yesterday"
+                    elif int(day_added) == day-2:
+                        new_job["date"] = "2 days ago"
+                    elif int(day_added) == day-3:
+                        new_job["date"] = "3 days ago"
 
                     new_job["contract_time"] = job.get("contract_time")  # might be unknown
                     new_job["title"] = job["title"]
@@ -32,5 +43,3 @@ class JobBoard:
                     jobs_seen.add(job["id"])
         print("end of page " + str(page))
         return jobs
-
-

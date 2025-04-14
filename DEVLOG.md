@@ -1,3 +1,21 @@
+# 14/04/2025
+- Jusst going to now polish everything up before pushing to master
+- So things like adding mobile support for the website
+- And then ill deploy using Netlify
+- The plan is to use github actions to automate the job fetching once a day by running the prefetch scripts
+- And then netlify will rebuild the site with the new information
+- Or i might use github pages, because of netlifys limited build minutes
+- I added a new header to the website to hold nav links instead of throwing it inside the left column
+
+# 13/04/2025
+- Just for the record, all the fonts/images I used for the website holds a creative commons license (So not copyrighted), and the wallpaper for the website i generated using an AI image generator.
+- What i want to do eventually is make it so that jobs are sorted depending on the context
+- This means if full time filter is on, show full time jobs FIRST before showing anything else
+- But today ill work on changing the date posted part, where instead of diplaying the literal date, ill instead show either 'today' if posted today, or 'yesterday' if posted yesterday etc
+- Saying this, i should probably take a course on UX somewhere down the line
+- I should also make use of HTML semantic tag elements like section instead of constantly using divs because its a bit lazy
+- I also filled out the privacy policy and TOS using template(s) I found online and then just modifiyng it
+
 # 12/04/2025
 - For the filters, Im use checkboxes, where they will have event listners that will hide industry sections based of whether their checked or not using a combination of css style hidden and js
 - I had to use display instead of visibility because simply hiding it doesnt actually take it out the html, it still taking up space but would just be invisible
