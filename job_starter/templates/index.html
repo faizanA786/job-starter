@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Starter</title>
-    <link rel="stylesheet" href="../../dist/static/style.css">
-    <link rel="icon" href="../../dist/favicon.webp">
-    <script src="../../dist/static/js/filterByContractTime.js" defer></script>
-    <script src="../../dist/static/js/filterByIndustry.js" defer></script>
-    <script src="../../dist/static/js/visited.js" defer></script>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" href="favicon.png">
+
+    <script src="static/js/visited.js" defer></script>
+    <script src="static/js/filter.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="header">
             <div class="header-info">
                 <div class="title">
-                    <img src="../../dist/favicon.webp">
+                    <img src="favicon.png">
                     <h1>Job Starter</h1>
                 </div>
+                <input class="search" type="text" id="searchEntry" placeholder="Job Title...">
                 <div class="links">
                     <p><a href="">Terms & Conditions</a></p>
                     <p><a href="">Privacy Policy</a></p>
@@ -28,55 +29,68 @@
         <div class="grid">
 
             <div class="left-column">
-                <div class="filter-container" id="filter-container">
-                    <div class="filter-data">
-                        <h1>Job Board</h1>
-                        <div class="filter-desc">
-                            <p>Explore entry level roles based in London, for those that have never worked before and would like to gain experience.</p>
-                            <p>Job adverts are fetched once a day at 00:00 from numerous sources and are at most 3 days old.</p>
+                <div>
+                    <div class="filter-container" id="filter-container">
+                        <div class="filter-data">
+                            <h1>Job Board</h1>
+                            <div class="filter-desc">
+                                <p>Explore entry level roles based in London, for those that have never worked before and would like to gain experience.</p>
+                                <p>Job adverts are fetched once a day at 00:00 from numerous sources and are at most 3 days old.</p>
+                            </div>
+        
+                            <hr>
+                            <h2>Industry</h2>
+                            <div class="filter">
+                                <div class="filter-input">
+                                    <input type="checkbox" id="retail" checked>
+                                    <p>Retail (9)</p>
+                                </div>
+                                <div class="filter-input">
+                                    <input type="checkbox" id="logistics" checked>
+                                    <p>Logistics (0)</p>
+                                </div>
+                                <div class="filter-input">
+                                    <input type="checkbox" id="hospitality" checked>
+                                    <p>Hospitality (34)</p>
+                                </div>
+                            </div>
+        
+                            <hr>
+                            <h2>Job Type</h2>
+                            <div class="filter">
+                                <div class="filter-input">
+                                    <input type="checkbox" id="unspecified" checked>
+                                    <p>Unspecified</p> 
+                                </div>
+                                <div class="filter-input">
+                                    <input type="checkbox" id="full_time" checked>
+                                    <p>Full Time</p> 
+                                </div>
+                                <div class="filter-input">
+                                    <input type="checkbox" id="part_time" checked>
+                                    <p>Part Time</p>
+                                </div>
+                            </div>
+        
+                            <hr>
+                            <div class="credit">
+                                <img src="static/images/logo-adzuna.svg">
+                                <i>Jobs by <a href="http://www.adzuna.co.uk" target="_blank">Adzuna</a> API</i>
+                            </div>
                         </div>
-    
-                        <hr>
-                        <h2>Industry</h2>
-                        <div class="filter">
-                            <div class="filter-input">
-                                <input type="checkbox" id="retail" checked>
-                                <p>Retail ({{ retail|length }})</p>
-                            </div>
-                            <div class="filter-input">
-                                <input type="checkbox" id="logistics" checked>
-                                <p>Logistics ({{ logistics|length }})</p>
-                            </div>
-                            <div class="filter-input">
-                                <input type="checkbox" id="hospitality" checked>
-                                <p>Hospitality ({{ hospitality|length }})</p>
-                            </div>
-                        </div>
-    
-                        <hr>
-                        <h2>Job Type</h2>
-                        <div class="filter">
-                            <div class="filter-input">
-                                <input type="checkbox" id="unspecified" checked>
-                                <p>Unspecified</p> 
-                            </div>
-                            <div class="filter-input">
-                                <input type="checkbox" id="full_time" checked>
-                                <p>Full Time</p> 
-                            </div>
-                            <div class="filter-input">
-                                <input type="checkbox" id="part_time" checked>
-                                <p>Part Time</p>
-                            </div>
-                        </div>
-    
-                        <hr>
-                        <div class="credit">
-                            <img src="../../dist/static/images/logo-adzuna.svg">
-                            <i>Jobs by <a href="http://www.adzuna.co.uk" target="_blank">Adzuna</a> API</i>
+                    </div>
+
+                    <div class="email-container">
+                        <h1>Email Alerts</h1>
+                        <p>Enable email alerts to receive daily updates on newly posted job listings.</p>
+                    
+                        <div class="email-alert">
+                            <input class="email" type="email" placeholder="example@gmail.com" required>
+                            <button class="email-submit" type="button">Enable</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="to-top">
                     <p><a href="#filter-container">Back to Top</a></p>
                 </div>
@@ -88,7 +102,7 @@
                     <div class="job-container {{ job['contract_time'] }}">
                         <div class="job-data">
                             <div class="job-info">
-                                <p><b>{{ job["title"] }}</b></p> 
+                                <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
                                 <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
@@ -122,7 +136,7 @@
                     <div class="job-container {{ job['contract_time'] }}">
                         <div class="job-data">
                             <div class="job-info">
-                                <p><b>{{ job["title"] }}</b></p> 
+                                <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
                                 <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
@@ -157,7 +171,7 @@
                     <div class="job-container {{ job['contract_time'] }}">
                         <div class="job-data">
                             <div class="job-info">
-                                <p><b>{{ job["title"] }}</b></p> 
+                                <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
                                 <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
@@ -183,7 +197,6 @@
                         </div>
                     </div>
                     {% endfor %}
-
                 </div>
 
             </div>

@@ -1,3 +1,9 @@
+# 15/04/2025
+- One thing i thought of is, why dont i add email alerts? This will be configured to only show jobs that were posted today, and an email will be sent out to the people who enabled email alerts
+- I can use resend for this, but only 100 users can sign up at a time, since if i go over this limit ill get billed
+- 100 * 30 = 3,000 / month
+- The search bar rioght now is very basic, and doesnt even work that well with the filters right now
+
 # 14/04/2025
 - Jusst going to now polish everything up before pushing to master
 - So things like adding mobile support for the website
@@ -6,6 +12,8 @@
 - And then netlify will rebuild the site with the new information
 - Or i might use github pages, because of netlifys limited build minutes
 - I added a new header to the website to hold nav links instead of throwing it inside the left column
+- I came up with an idea to also take the opportunity to add a search bar in the header as well
+- This gives a better reason for the job jsons to exist, so js can query through them
 
 # 13/04/2025
 - Just for the record, all the fonts/images I used for the website holds a creative commons license (So not copyrighted), and the wallpaper for the website i generated using an AI image generator.
