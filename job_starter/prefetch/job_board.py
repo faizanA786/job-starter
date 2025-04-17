@@ -45,6 +45,6 @@ class JobBoard:
                         jobs_seen.add(job["id"])
                 print("end of page " + str(page))
             except Exception as error:
-                print("error, no jobs?")
+                print("error, no jobs?" + str(error))
                 continue
         return jobs
