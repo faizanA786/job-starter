@@ -1,4 +1,13 @@
+function triggerAnimation() {
+    let element = document.getElementById("fadeDown");
+
+    element.classList.remove("fade-down");
+    void element.offsetWidth; 
+    element.classList.add("fade-down");
+}
+
 function isCheckedType(event) { // JOB TYPE
+    triggerAnimation();
     let unspecifiedJobs = document.querySelectorAll(".job-container.None");
     let fullTimeJobs = document.querySelectorAll(".job-container.full_time");
     let partTimeJobs = document.querySelectorAll(".job-container.part_time");
@@ -36,6 +45,7 @@ function isCheckedType(event) { // JOB TYPE
 }
 
 function isCheckedIndustry(event) { // INDUSTRY 
+    triggerAnimation();
     let div = document.getElementById(`${event.target.id}-div`);
 
     if (event.target.checked) {
@@ -53,6 +63,7 @@ function matchTitle(event) { // SEARCH
     let entry = document.getElementById("searchEntry").value;
 
     if (event.key == "Enter") {
+        triggerAnimation();
 
         if (entry.trim() == "") {
             console.log("Returning default job list");

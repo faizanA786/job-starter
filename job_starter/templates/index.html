@@ -11,6 +11,12 @@
     <script src="static/js/filter.js" defer></script>
 </head>
 <body>
+    <noscript>
+        <div style="z-index: 100; position: fixed; color: red; background: #ffe5e5; padding: 2rem; text-align: center;">
+          JavaScript is disabled in your browser. Please enable it for this site to work properly.
+        </div>
+    </noscript>
+
     <div class="wrapper">
         <div class="header">
             <div class="header-info">
@@ -35,23 +41,23 @@
                             <h1>Job Board</h1>
                             <div class="filter-desc">
                                 <p>Explore entry level roles based in London, for those that have never worked before and would like to gain experience.</p>
-                                <p>Job adverts are fetched once a day at 00:00 from numerous sources and are at most 3 days old.</p>
+                                <p>Job adverts are fetched once a day at 06:00 from numerous sources and are at most 3 days old.</p>
                             </div>
         
                             <hr>
                             <h2>Industry</h2>
                             <div class="filter">
                                 <div class="filter-input">
-                                    <input type="checkbox" id="retail" checked>
-                                    <p>Retail (9)</p>
+                                    <input type="checkbox" id="logistics" checked>
+                                    <p>Logistics ({{ logistics|length }})</p>
                                 </div>
                                 <div class="filter-input">
-                                    <input type="checkbox" id="logistics" checked>
-                                    <p>Logistics (0)</p>
+                                    <input type="checkbox" id="retail" checked>
+                                    <p>Retail ({{ retail|length }})</p>
                                 </div>
                                 <div class="filter-input">
                                     <input type="checkbox" id="hospitality" checked>
-                                    <p>Hospitality (34)</p>
+                                    <p>Hospitality ({{ hospitality|length }})</p>
                                 </div>
                             </div>
         
@@ -84,10 +90,18 @@
                         <h1>Email Alerts</h1>
                         <p>Enable email alerts to receive daily updates on newly posted job listings.</p>
                     
-                        <div class="email-alert">
-                            <input class="email" type="email" placeholder="example@gmail.com" required>
-                            <button class="email-submit" type="button">Enable</button>
-                        </div>
+                        <form id="addEmailForm" class="email-alert">
+                            <input id="emailInput" class="email" type="email" placeholder="addmail@gmail.com" required>
+                            <button class="email-submit" type="submit">Enable</button>
+                        </form>
+                        <hr>
+
+                        <h2>Unsubscribe</h2>
+                        <p>Request for your email to be removed off of our database.</p>
+                        <form id="delEmailForm" class="email-alert">
+                            <input id="emailInput-del" class="email" type="email" placeholder="removemail@gmail.com" required>
+                            <button class="email-remove" type="submit">Remove</button>
+                        </form>
                     </div>
                 </div>
 
@@ -96,7 +110,7 @@
                 </div>
             </div>
 
-            <div>
+            <div id="fadeDown" class="fade-down">
                 <div class="logistics" id="logistics-div">
                     {% for job in logistics %}
                     <div class="job-container {{ job['contract_time'] }}">
@@ -105,7 +119,7 @@
                                 <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
-                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: {{ job["date"] }}</p> 
@@ -139,7 +153,7 @@
                                 <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
-                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: {{ job["date"] }}</p>  
@@ -174,7 +188,7 @@
                                 <p id="job-title"><b>{{ job["title"] }}</b></p> 
                                 <p>{{ job["company"] }}</p> 
                             
-                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="{{ job['url'] }}" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: {{ job["date"] }}</p>   
@@ -203,4 +217,96 @@
         </div>
     </div>
 </body>
+<script type="module">
+    // FIREBASE
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvb89gwiyEEQG_xnhV31kZhKbRDV9xdtg",
+      authDomain: "job-starter.firebaseapp.com",
+      projectId: "job-starter",
+      storageBucket: "job-starter.firebasestorage.app",
+      messagingSenderId: "627851351292",
+      appId: "1:627851351292:web:42cca2933a81671245b379",
+      measurementId: "G-JQWV7D1ZXD"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    // ------------------------------------
+  
+    document.getElementById("addEmailForm").addEventListener("submit", addForm);
+    document.getElementById("delEmailForm").addEventListener("submit", delForm);
+
+    // async function checkTables(event) {
+
+    //     let email = document.getElementById("emailInput").value.trim();
+
+    //     let pendingResults = await getDocs(collection(db, "pendingEmails"));
+    //     let subscribedResults = await getDocs(collection(db, "subscribedEmails"));
+
+    //     for (let doc of pendingResults.docs) {
+    //         if (doc.data().email == emailInput) {
+    //             alert("This email is already subscribed/pending");
+    //             return;
+    //         }
+    //     }
+
+    //     for (let doc of subscribedResults.docs) {
+    //         if (doc.data().email == emailInput) {
+    //             alert("This email is already subscribed/pending");
+    //             return;
+    //         }
+    //     }
+
+    //     submitForm(emailInput);  // call function and pass the email
+    // }
+
+    function addForm(event) {     
+        event.preventDefault();  // prevent form submission
+
+        let email = document.getElementById("emailInput").value.trim();
+   
+        if (email) {
+            let emailData = { // JS object
+                email: email,
+                timestamp: new Date()
+            };
+
+            addDoc(collection(db, "pendingEmails"), emailData)
+
+            .then(function() {
+                alert("Email sent to waiting list, will be subscribed shortly.");
+                document.getElementById("emailInput").value = "";
+            })
+            .catch(function(error) {
+                console.error("Error adding email:" + error);
+            });
+        }
+    }
+
+    function delForm(event) {
+        event.preventDefault();  // prevent form submission
+
+        let email = document.getElementById("emailInput-del").value.trim();
+
+        if (email) {
+            let emailData = { // JS object
+                email: email,
+                timestamp: new Date()
+            };
+
+            addDoc(collection(db, "deleteEmails"), emailData)
+
+            .then(function() {
+                alert("Email will be removed and unsubscribed shortly.");
+                document.getElementById("emailInput-del").value = "";
+            })
+            .catch(function(error) {
+                console.error("Error adding email:" + error);
+            });
+        }
+    }
+  </script>
 </html>

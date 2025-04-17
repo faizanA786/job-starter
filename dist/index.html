@@ -11,6 +11,12 @@
     <script src="static/js/filter.js" defer></script>
 </head>
 <body>
+    <noscript>
+        <div style="z-index: 100; position: fixed; color: red; background: #ffe5e5; padding: 2rem; text-align: center;">
+          JavaScript is disabled in your browser. Please enable it for this site to work properly.
+        </div>
+    </noscript>
+
     <div class="wrapper">
         <div class="header">
             <div class="header-info">
@@ -35,7 +41,7 @@
                             <h1>Job Board</h1>
                             <div class="filter-desc">
                                 <p>Explore entry level roles based in London, for those that have never worked before and would like to gain experience.</p>
-                                <p>Job adverts are fetched once a day at 00:00 from numerous sources and are at most 3 days old.</p>
+                                <p>Job adverts are fetched once a day at 06:00 from numerous sources and are at most 3 days old.</p>
                             </div>
         
                             <hr>
@@ -43,7 +49,7 @@
                             <div class="filter">
                                 <div class="filter-input">
                                     <input type="checkbox" id="retail" checked>
-                                    <p>Retail (9)</p>
+                                    <p>Retail (5)</p>
                                 </div>
                                 <div class="filter-input">
                                     <input type="checkbox" id="logistics" checked>
@@ -51,7 +57,7 @@
                                 </div>
                                 <div class="filter-input">
                                     <input type="checkbox" id="hospitality" checked>
-                                    <p>Hospitality (34)</p>
+                                    <p>Hospitality (24)</p>
                                 </div>
                             </div>
         
@@ -84,10 +90,18 @@
                         <h1>Email Alerts</h1>
                         <p>Enable email alerts to receive daily updates on newly posted job listings.</p>
                     
-                        <div class="email-alert">
-                            <input class="email" type="email" placeholder="example@gmail.com" required>
-                            <button class="email-submit" type="button">Enable</button>
-                        </div>
+                        <form id="addEmailForm" class="email-alert">
+                            <input id="emailInput" class="email" type="email" placeholder="addmail@gmail.com" required>
+                            <button class="email-submit" type="submit">Enable</button>
+                        </form>
+                        <hr>
+
+                        <h2>Unsubscribe</h2>
+                        <p>Request for your email to be removed off of our database.</p>
+                        <form id="delEmailForm" class="email-alert">
+                            <input id="emailInput-del" class="email" type="email" placeholder="removemail@gmail.com" required>
+                            <button class="email-remove" type="submit">Remove</button>
+                        </form>
                     </div>
                 </div>
 
@@ -96,7 +110,7 @@
                 </div>
             </div>
 
-            <div>
+            <div id="fadeDown" class="fade-down">
                 <div class="logistics" id="logistics-div">
                     
                 </div>
@@ -106,13 +120,38 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Cluster Store &amp; Goods Receiving Assistant</b></p> 
+                                <p id="job-title"><b>Cluster Store & Goods Receiving Assistant</b></p> 
                                 <p>Melia White House Hotel</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5144717081?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145578501?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: Today</p>  
+                                <p>Date Posted: 2 days ago</p>  
+    
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Fitzrovia,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Fitzrovia, West London
+                                    </a>
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Cluster Store & Goods Receiving Assistant</b></p> 
+                                <p>Melia White House Hotel</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5144717081?se=cCbFpI0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=401757D5CF73B2BA8D903122175D2E26A20363D3" class="job-link" id="job-link" target="_blank">Apply</a></p> 
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 3 days ago</p>  
     
                                 
                                     <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
@@ -134,10 +173,10 @@
                                 <p id="job-title"><b>Sales assistant - entry level</b></p> 
                                 <p>0.0 Associates LTD</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5144110278?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5144110278?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: Today</p>  
+                                <p>Date Posted: 3 days ago</p>  
     
                                 
                                     <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
@@ -159,10 +198,10 @@
                                 <p id="job-title"><b>Sales Assistant/ Barista</b></p> 
                                 <p>Laduree</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5144075632?se=SLnDSXcZ8BGAB34f9bWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=D78520E0B0755A09EBB1B130892DE22E5F8112A2" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5144075632?se=cCbFpI0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=D78520E0B0755A09EBB1B130892DE22E5F8112A2" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: Today</p>  
+                                <p>Date Posted: 3 days ago</p>  
     
                                  
                                     
@@ -171,8 +210,8 @@
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+James&#39;s,+South+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        St James&#39;s, South West London
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+James's,+South+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        St James's, South West London
                                     </a>
                                 </p>
                             </div>
@@ -180,155 +219,24 @@
                         </div>
                     </div>
                     
-                    <div class="job-container full_time">
+                    <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Sales and Customer Assistant</b></p> 
-                                <p>Blackwater Recruitment Ltd</p> 
+                                <p id="job-title"><b>Customer Service Apprentice</b></p> 
+                                <p>Bright Side Recruitment Ltd</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5143190579?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5147389384?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p> 
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: Yesterday</p>  
     
-                                 
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=East+London,+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        East London, London
-                                    </a>
-                                </p>
-                            </div>
-    
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Casual Sales Assistant</b></p> 
-                                <p>Evans Cycles</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5141505879?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>  
-    
                                 
                                     <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=London,+UK&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        London, UK
-                                    </a>
-                                </p>
-                            </div>
-    
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Sales Assistant - Immediate Start</b></p> 
-                                <p>Inc Recruitment</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140553969?se=SLnDSXcZ8BGAB34f9bWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=1121029D4059936CEDD8B8D4CB874FEF589F04C0" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>  
-    
-                                 
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Turnpike+Lane,+North+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Turnpike Lane, North London
-                                    </a>
-                                </p>
-                            </div>
-    
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Sales Assistant - Immediate Start</b></p> 
-                                <p>Inc Recruitment</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140553921?se=SLnDSXcZ8BGAB34f9bWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=F41916FCCD7EB3371D89F74F1D782A095357F30A" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>  
-    
-                                 
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+Lukes,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        St Lukes, Central London
-                                    </a>
-                                </p>
-                            </div>
-    
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Sales Assistant</b></p> 
-                                <p>Inc Recruitment Ltd</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140549084?se=SLnDSXcZ8BGAB34f9bWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=AADFD8D9667435B9CBA403D907547C4BD7470F90" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>  
-    
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Southwark,+South+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Southwark, South East London
-                                    </a>
-                                </p>
-                            </div>
-    
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Sales Assistant - Immediate Start</b></p> 
-                                <p>Inc Recruitment Ltd</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140549073?se=SLnDSXcZ8BGAB34f9bWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=48B8CC5B2CDEA663E04968C7FA127627B788E129" class="job-link" id="job-link" target="_blank">Apply Now!</a></p> 
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>  
-    
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Regent&#39;s+Park,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Regent&#39;s Park, North West London
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Lewisham,+South+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Lewisham, South East London
                                     </a>
                                 </p>
                             </div>
@@ -343,13 +251,13 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>School &amp; Kitchen Assistant - The Jamie Oliver Cookery School</b></p> 
-                                <p>Jamie Oliver Ltd</p> 
+                                <p id="job-title"><b>Kitchen Porter</b></p> 
+                                <p>The Marylebone</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818721?se=TGY2xZgX8BGBpvB-H3cHCQ&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=99107C69275DDB8ADD69A6F42D20EC9B30385B05" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5144044442?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
+                                <p>Date Posted: 3 days ago</p>   
                                 
                                     <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
                                 
@@ -366,10 +274,10 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>Jamie Oliver Ltd</p> 
+                                <p id="job-title"><b>School Catering Assistant</b></p> 
+                                <p>Berkeley Scott</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818722?se=gmGRxZgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=0E59094EF66934116CAF787182B8407A591EEFB7" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145597640?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: 2 days ago</p>   
@@ -378,104 +286,8 @@
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Strand,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Strand, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>Regents Park Theatre Ltd</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5138594732?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Marylebone,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Marylebone, North West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>CH&amp;CO</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137738849?se=gmGRxZgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=889B36A5BEC4F52544356DF48866CE17ED6EF1A3" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Liverpool+Street,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Liverpool Street, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>Ottolenghi</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5137045787?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Islington,+North+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Islington, North London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>Recipease Limited</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5137045784?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=West+End,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        West End, West London
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Turnpike+Lane,+North+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Turnpike Lane, North London
                                     </a>
                                 </p>  
                             </div>
@@ -485,340 +297,10 @@
                     <div class="job-container part_time">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Kitchen Porter</b></p> 
-                                <p>Turtle Bay</p> 
+                                <p id="job-title"><b>Part-time Evening Waiter</b></p> 
+                                <p>Pullman Hotels & Resorts</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5136904100?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    
-                                        <p style="color: #0288d1"><b>Part Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Camden,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Camden, North West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>General Catering Assistant</b></p> 
-                                <p>Artizian Catering Services Ltd</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5139649143?se=YA34xZgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=C8E6A88E168A9F77572DA42C18AD52FC8F0D7E3F" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Kings+Cross,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Kings Cross, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Catering Assistant</b></p> 
-                                <p>CH&amp;CO</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137738860?se=YA34xZgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=351A65E73ADDE352631BE74B214AC9171669C9AD" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Bishopsgate,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Bishopsgate, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Catering Assistant</b></p> 
-                                <p>CH&amp;CO</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137738861?se=YA34xZgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=BB716E7046866690EA8E926E89DAED7295DDA55A" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Tower+Hill,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Tower Hill, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Development Chef - Contract Catering</b></p> 
-                                <p>Illume Recruitment</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137085639?se=YA34xZgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=4886E14AF1B13E70B39698A28BFBDC040561F5B8" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=The+City,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        The City, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Waiter - Rondo</b></p> 
-                                <p>The Hoxton</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5141859571?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Today</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=London,+UK&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        London, UK
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Waitress/Waiter</b></p> 
-                                <p>Restaurant Story</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140549017?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=439277794BA459A90EBD1A00339219F2AC93D4EA" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Yesterday</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Tower+Bridge,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Tower Bridge, East London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Waiter/Waitress</b></p> 
-                                <p>St. JOHN Restaurant</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5139454001?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=33BF5D5407E4026C3D8B9823045C7867D3EBC624" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Central+London,+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Central London, London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Junior Waiter/Waitress</b></p> 
-                                <p>17 Bruton Street</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5139135303?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=BFA9FD73109EC629B6B4C57A897692C0D41E0F56" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+James&#39;s,+South+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        St James&#39;s, South West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Waiter</b></p> 
-                                <p>Clipstone</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818731?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=159D9A171CA49B3DB4133E76DB44AC27BD926130" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Fitzrovia,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Fitzrovia, West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Waiter</b></p> 
-                                <p>The Quality Chop House</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818728?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=1669C9F2B15EF5F2DF864A14956D58005858B30F" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Finsbury,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Finsbury, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container part_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Events Waiter/waitress</b></p> 
-                                <p>The Maine Mayfair</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5138595032?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    
-                                        <p style="color: #0288d1"><b>Part Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Oxford+Circus,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Oxford Circus, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Commis Waiter/waitress</b></p> 
-                                <p>Kai Mayfair</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138467526?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=57960763CECC645424EC5F2F1E02A333911414ED" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Central+London,+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Central London, London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container part_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Events Waiter/waitress</b></p> 
-                                <p>The Maine Mayfair</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137948275?se=zJNVxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=CCCE5C61A7DF0C815310B6BE9ED65EF113A77048" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    
-                                        <p style="color: #0288d1"><b>Part Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Oxford+Circus,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Oxford Circus, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container part_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Team Member</b></p> 
-                                <p>Gail&#39;s</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5141864739?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5149555191?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=F0C2FCC4D5B7F12336E016F84901CBA8D957A098" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: Today</p>   
@@ -826,79 +308,6 @@
                                     
                                         <p style="color: #0288d1"><b>Part Time</b></p> 
                                     
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Kentish+Town,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Kentish Town, North West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Team Member</b></p> 
-                                <p>Gail&#39;s</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5141322060?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Yesterday</p>   
-                                
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Blackfriars,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Blackfriars, Central London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container part_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Part Time Team Member</b></p> 
-                                <p>Gail&#39;s</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5141322047?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Yesterday</p>   
-                                
-                                    
-                                        <p style="color: #0288d1"><b>Part Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Waterloo,+South+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Waterloo, South East London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Hotel Kitchen - Team Member</b></p> 
-                                <p>Whitbread</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5140467143?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Yesterday</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
                                 
 
                                 <p>
@@ -910,50 +319,23 @@
                         </div>
                     </div>
                     
-                    <div class="job-container part_time">
+                    <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Kitchen Team Member</b></p> 
-                                <p>Gail&#39;s</p> 
+                                <p id="job-title"><b>Waiting Staff</b></p> 
+                                <p>Easycare 4 U Limited</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5140254866?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5148256301?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: Yesterday</p>   
                                 
-                                    
-                                        <p style="color: #0288d1"><b>Part Time</b></p> 
-                                    
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Dartmouth+Park,+North+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Dartmouth Park, North London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container full_time">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Team Member - Barbican Centre</b></p> 
-                                <p>Benugo</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5140250521?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: Yesterday</p>   
-                                
-                                    
-                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
-                                    
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=London,+UK&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        London, UK
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Lewisham,+South+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Lewisham, South East London
                                     </a>
                                 </p>  
                             </div>
@@ -963,10 +345,33 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Maintenance Team Member</b></p> 
-                                <p>The Clermont Charing Cross</p> 
+                                <p id="job-title"><b>Waiter/Waitress</b></p> 
+                                <p>ALTA Restaurant Ltd</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5140222214?se=lmXDxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=8422A8DF9EE2A85E73F3E4DA8538081D0AC7F70D" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5147973427?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=1B4C0D71580934BD421E4883C5422BAA19C0AF3E" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: Yesterday</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Oxford+Circus,+Central+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Oxford Circus, Central London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Room Service Waiter</b></p> 
+                                <p>The Marylebone</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5147553517?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=176D01576EB2486DE604399AD2506772ED01078E" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: Yesterday</p>   
@@ -986,13 +391,36 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Maintenance Team Member</b></p> 
-                                <p>The Clermont Charing Cross</p> 
+                                <p id="job-title"><b>Waiter/Waitress</b></p> 
+                                <p>Hyatt Regency London Stratford and Hyatt House London Stratford</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818748?se=lmXDxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=A23E41A9C099E2864CA70392C9E828047B9F79A1" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5147552474?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=6E82777CED89D77A00F3A23392DB5E019EBEB4B9" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
+                                <p>Date Posted: Yesterday</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=East+London,+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        East London, London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter/waitress Restaurant</b></p> 
+                                <p>Roof Investment Ltd</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5147471094?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=ADFE40FE647266F0DF2E80AEBDA1DCB8D74552CC" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: Yesterday</p>   
                                 
                                     <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
                                 
@@ -1009,10 +437,10 @@
                     <div class="job-container None">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Food &amp; Beverage Team Member</b></p> 
-                                <p>Novotel London Excel</p> 
+                                <p id="job-title"><b>Waiter/Waitress</b></p> 
+                                <p>12Hayhill</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138818724?se=lmXDxpgX8BGUknvr1rWCew&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=F4E0B91AC58400FD51F7561209908CD0E6C57F53" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5146320944?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=BD1DC37441AE638130A850E1B7773D98DDAAFCAB" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: 2 days ago</p>   
@@ -1021,8 +449,8 @@
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Victoria+Docks,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Victoria Docks, East London
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+James's,+South+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        St James's, South West London
                                     </a>
                                 </p>  
                             </div>
@@ -1030,91 +458,97 @@
                     </div>
                     
                     <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter / Waitress</b></p> 
+                                <p>BOISDALE</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5146320788?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=98A38C69457E251C21AE6BBFCD9F9E1B0D6D5631" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Canary+Wharf,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Canary Wharf, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter/Waitress</b></p> 
+                                <p>Angelina Hospitality Limited</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5146320753?se=_tsK0I0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=B20410D1CC57D730B2181393703A87EDF0E6626C" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Spitalfields,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Spitalfields, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter</b></p> 
+                                <p>Pizza Pilgrims</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145644197?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Shoreditch,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Shoreditch, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
                         <div class="job-data">
                             <div class="job-info">
                                 <p id="job-title"><b>Kitchen Team Member</b></p> 
-                                <p>IBIS</p> 
+                                <p>Gail's</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5138705259?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5148302995?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
+                                <p>Date Posted: Yesterday</p>   
                                 
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=London,+UK&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        London, UK
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Kitchen Team Member</b></p> 
-                                <p>ibis London Excel Docklands</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138637617?se=npqYyJgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=1416E953569807B79FD8C663CF4AFCE92251119A" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Victoria+Docks,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Victoria Docks, East London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Night Hospitality Team Member - YHA London Central</b></p> 
-                                <p>YHA</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5138637580?se=npqYyJgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=44639CBC87EC1800FFB1A256AF6CE82DD7E78204" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 2 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Fitzrovia,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Fitzrovia, West London
-                                    </a>
-                                </p>  
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="job-container None">
-                        <div class="job-data">
-                            <div class="job-info">
-                                <p id="job-title"><b>Restaurant Team Member</b></p> 
-                                <p>Whitbread</p> 
-                            
-                                <p><a href="https://www.adzuna.co.uk/jobs/details/5137120772?utm_medium=api&amp;utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
-                            </div>
-                            <div class="job-info">
-                                <p>Date Posted: 3 days ago</p>   
-                                
-                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
-                                
-
-                                <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Beckton,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Beckton, East London
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Chalk+Farm,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Chalk Farm, North West London
                                     </a>
                                 </p>  
                             </div>
@@ -1124,10 +558,156 @@
                     <div class="job-container part_time">
                         <div class="job-data">
                             <div class="job-info">
-                                <p id="job-title"><b>Food and Beverage Team Member</b></p> 
-                                <p>Nuffield Health</p> 
+                                <p id="job-title"><b>Part Time Kitchen Team Member</b></p> 
+                                <p>Gail's</p> 
                             
-                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5137108302?se=npqYyJgX8BGlD81SPiZXLA&amp;utm_medium=api&amp;utm_source=fe564060&amp;v=7DF0EFDCC1FB5E1D83F0088A364D40381E9C32F5" class="job-link" id="job-link" target="_blank">Apply Now!</a></p>
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5147471765?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: Yesterday</p>   
+                                
+                                    
+                                        <p style="color: #0288d1"><b>Part Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Camden+Town,+North+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Camden Town, North West London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Maintenance Team Member</b></p> 
+                                <p>Whitbread</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5147347993?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: Yesterday</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Canning+Town,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Canning Town, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Food & Beverage Team Member - Full Time</b></p> 
+                                <p>ibis budget London Whitechapel</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5146649627?se=XIhu0I0b8BGcu5osNyZXLA&utm_medium=api&utm_source=fe564060&v=7452F2C9ADC265C7899183A9C6692AB6174A664B" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: Yesterday</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Whitechapel,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Whitechapel, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Kitchen Team Member</b></p> 
+                                <p>Gail's</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5146527239?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=London+Fields,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        London Fields, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Maintenance Team Member</b></p> 
+                                <p>Staycity</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145899596?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Shadwell,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Shadwell, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Nights Team Member</b></p> 
+                                <p>Whitbread</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145667588?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Barking,+Essex&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Barking, Essex
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container part_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Part Time Kitchen Team Member</b></p> 
+                                <p>Gail's</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5144176151?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
                             </div>
                             <div class="job-info">
                                 <p>Date Posted: 3 days ago</p>   
@@ -1138,8 +718,104 @@
                                 
 
                                 <p>
-                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Buckhurst+Hill,+Essex&travelmode=transit" class="map-link" id="map-link" target="_blank">
-                                        Buckhurst Hill, Essex
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Southwark,+South+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Southwark, South East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Room Service Waiter</b></p> 
+                                <p>The Marylebone</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5145635567?se=Wp6u0Y0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=5A13E16E943F11CC4B1B261353462D3EAE661E54" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=West+End,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        West End, West London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter</b></p> 
+                                <p>Pizza Pilgrims</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/details/5145114397?utm_medium=api&utm_source=fe564060" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Canary+Wharf,+East+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Canary Wharf, East London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container None">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter/Waitress</b></p> 
+                                <p>Soho House & Co</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5144980285?se=Wp6u0Y0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=CC8040AAA20F115AF587321896605DE67E29D204" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 2 days ago</p>   
+                                
+                                    <p  style="color: #b0b00d"><b>Job Type Unspecified</b></p>
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=Chinatown,+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        Chinatown, West London
+                                    </a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-container full_time">
+                        <div class="job-data">
+                            <div class="job-info">
+                                <p id="job-title"><b>Waiter Waitress Restaurant</b></p> 
+                                <p>Park Chinois</p> 
+                            
+                                <p><a href="https://www.adzuna.co.uk/jobs/land/ad/5144552515?se=Wp6u0Y0b8BG0P-x9F3cHCQ&utm_medium=api&utm_source=fe564060&v=98307069C06CFA3915FEEA598D2B0F195F4EFCDB" class="job-link" id="job-link" target="_blank">Apply</a></p>
+                            </div>
+                            <div class="job-info">
+                                <p>Date Posted: 3 days ago</p>   
+                                
+                                    
+                                        <p style="color: #2e7d32"><b>Full Time</b></p> 
+                                    
+                                
+
+                                <p>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=Current+Location&destination=destination=St+James's,+South+West+London&travelmode=transit" class="map-link" id="map-link" target="_blank">
+                                        St James's, South West London
                                     </a>
                                 </p>  
                             </div>
@@ -1152,4 +828,96 @@
         </div>
     </div>
 </body>
+<script type="module">
+    // FIREBASE
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvb89gwiyEEQG_xnhV31kZhKbRDV9xdtg",
+      authDomain: "job-starter.firebaseapp.com",
+      projectId: "job-starter",
+      storageBucket: "job-starter.firebasestorage.app",
+      messagingSenderId: "627851351292",
+      appId: "1:627851351292:web:42cca2933a81671245b379",
+      measurementId: "G-JQWV7D1ZXD"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    // ------------------------------------
+  
+    document.getElementById("addEmailForm").addEventListener("submit", addForm);
+    document.getElementById("delEmailForm").addEventListener("submit", delForm);
+
+    // async function checkTables(event) {
+
+    //     let email = document.getElementById("emailInput").value.trim();
+
+    //     let pendingResults = await getDocs(collection(db, "pendingEmails"));
+    //     let subscribedResults = await getDocs(collection(db, "subscribedEmails"));
+
+    //     for (let doc of pendingResults.docs) {
+    //         if (doc.data().email == emailInput) {
+    //             alert("This email is already subscribed/pending");
+    //             return;
+    //         }
+    //     }
+
+    //     for (let doc of subscribedResults.docs) {
+    //         if (doc.data().email == emailInput) {
+    //             alert("This email is already subscribed/pending");
+    //             return;
+    //         }
+    //     }
+
+    //     submitForm(emailInput);  // call function and pass the email
+    // }
+
+    function addForm(event) {     
+        event.preventDefault();  // prevent form submission
+
+        let email = document.getElementById("emailInput").value.trim();
+   
+        if (email) {
+            let emailData = { // JS object
+                email: email,
+                timestamp: new Date()
+            };
+
+            addDoc(collection(db, "pendingEmails"), emailData)
+
+            .then(function() {
+                alert("Email sent to waiting list, will be subscribed shortly.");
+                document.getElementById("emailInput").value = "";
+            })
+            .catch(function(error) {
+                console.error("Error adding email:" + error);
+            });
+        }
+    }
+
+    function delForm(event) {
+        event.preventDefault();  // prevent form submission
+
+        let email = document.getElementById("emailInput-del").value.trim();
+
+        if (email) {
+            let emailData = { // JS object
+                email: email,
+                timestamp: new Date()
+            };
+
+            addDoc(collection(db, "deleteEmails"), emailData)
+
+            .then(function() {
+                alert("Email will be removed and unsubscribed shortly.");
+                document.getElementById("emailInput-del").value = "";
+            })
+            .catch(function(error) {
+                console.error("Error adding email:" + error);
+            });
+        }
+    }
+  </script>
 </html>

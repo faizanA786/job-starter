@@ -1,0 +1,50 @@
+name: Daily Job Board Updates
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 every day
+  workflow_dispatch:     # manual triggering 
+
+jobs:
+  update-job-board:
+    runs-on: ubuntu-latest
+
+    env:
+      ADZUNA_API_KEY: ${{ secrets.ADZUNA_API_KEY }}
+      ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      RESEND_API: ${{ secrets.RESEND_API_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run job fetcher
+        run: python job_starter/prefetch/prefetch.py
+
+      - name: Run HTML builder
+        run: python job_starter/app.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: Automated daily update"
+          git push
+
+      - name: Process email subscriptions
+        run: python job_starter/process_emails.py
+
+      - name: Send emails
+        run: python job_starter/send_mail.py

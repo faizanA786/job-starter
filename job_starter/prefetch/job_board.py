@@ -1,11 +1,13 @@
 import requests
 from datetime import datetime
-from env import API_ID
-from env import API_KEY
+import os
 
 class JobBoard:
     @staticmethod
     def fetch_jobs(roles, page=1):
+        API_KEY = os.getenv("ADZUNA_API_KEY")
+        API_ID = os.getenv("ADZUNA_API_ID")
+
         jobs_seen = set()
         jobs = []
         exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head"

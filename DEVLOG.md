@@ -1,6 +1,22 @@
+# 17/04/2025
+- Since i dont need to use flask now due to the site now being static, ill remove this dependancy and only import from jinja2
+- Ive added functionality for users to now be able to request to remove their emails off of the database
+- A new third table called deleteEmails to store these
+- I also just rented a domain for the email + website which makes it look more formal
+- To summarise, the entire workflow is: Using github actions and cronjob to schedule, first fetch jobs, then create new html, then push to github pages, then process emails and finally send daily mail.
+- Ill get this done first, test and if everythings working, refactor and comment my code later by placing them into functions and overall cleaning things up
+- Ill quickly update my TOS and policy
+
+# 16/04/2025
+- Ill use firebase to store user emails, and the form so that users can enter their emails and JS will then add it to a list of emails
+- Two tables, pending emails and subscribed emails
+- When a user adds their email, ill review it manually and then move it to subscribed emails
+- This prevents spam and fake emails since i dont have a filter for that yet
+- I made a python script that automates moving emails from pending to subbed, not including emails that are already inside the subscribedEmails table and then deleting the emails in pendingEmails after these processes respectively.
+
 # 15/04/2025
 - One thing i thought of is, why dont i add email alerts? This will be configured to only show jobs that were posted today, and an email will be sent out to the people who enabled email alerts
-- I can use resend for this, but only 100 users can sign up at a time, since if i go over this limit ill get billed
+- I can use resend api for this, but only 100 users can sign up at a time, since if i go over this limit ill get billed
 - 100 * 30 = 3,000 / month
 - The search bar rioght now is very basic, and doesnt even work that well with the filters right now
 
