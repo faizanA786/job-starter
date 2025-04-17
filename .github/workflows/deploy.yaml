@@ -41,7 +41,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "chore: Automated daily update"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/faizanA786/job-starter.git HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/faizanA786/job-starter.git HEAD:main
 
       - name: Process email subscriptions
         run: python job_starter/process_emails.py
