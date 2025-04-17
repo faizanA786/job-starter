@@ -2,7 +2,7 @@ from google.cloud import firestore
 from google.oauth2 import service_account
 import json
 import os
-import datetime
+from datetime import datetime
 
 firebase_service_account = json.loads(os.getenv("FIREBASE_SERVICE_ACCOUNT"))
 credentials = service_account.Credentials.from_service_account_info(firebase_service_account)
