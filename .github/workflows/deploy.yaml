@@ -11,9 +11,9 @@ jobs:
 
     env:
       ADZUNA_API_KEY: ${{ secrets.ADZUNA_API_KEY }}
-      ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+      ADZUNA_API_ID: ${{ secrets.ADZUNA_APP_ID }}
       FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      RESEND_API: ${{ secrets.RESEND_API_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
 
     steps:
       - name: Checkout code
