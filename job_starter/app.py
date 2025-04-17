@@ -19,7 +19,7 @@ env = Environment(loader=FileSystemLoader("job_starter/templates"))
 template = env.get_template("index.html")
 html = template.render(retail=retail, logistics=logistics, hospitality=hospitality)
 
-with open("dist/index.html", "w", encoding="utf-8") as f:
+with open("docs/index.html", "w", encoding="utf-8") as f:
     f.write(html)
 
 end = time.time()
