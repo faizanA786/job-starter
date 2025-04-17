@@ -1,13 +1,13 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
+from google.cloud import firestore
+from google.oauth2 import service_account
 import json
 import resend
 import os
-import time
 
-cred = credentials.Certificate("job_starter/firebase-service-account.json")  
-firebase_admin.initialize_app(cred)
-db = firestore.client()
+firebase_service_account = json.loads(os.getenv("FIREBASE_SERVICE_ACCOUNT"))
+credentials = service_account.Credentials.from_service_account_info(firebase_service_account)
+
+db = firestore.Client(credentials=credentials)
 
 subscribed = db.collection("subscribedEmails")
 subscribed_docs = list(subscribed.stream())
