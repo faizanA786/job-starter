@@ -21,7 +21,10 @@ class JobBoard:
             print("checking " + roles[i] + " role")
             try:
                 response = requests.get("https://api.adzuna.com/v1/api/jobs/gb/search/" + str(page) + "?app_id=" + API_ID + "&app_key=" + API_KEY + "&results_per_page=10&what_exclude=" + exclude + "&title_only=" + roles[i] + "&where=East%20London&distance=10&max_days_old=3&sort_by=date&salary_include_unknown=1")
+                print(str(response.status_code))
                 time.sleep(2.5)
+
+                print("API response:" + str(response.json()))
                 for job in response.json()["results"]:
                     if job["id"] not in jobs_seen:
                         new_job = {}
@@ -44,8 +47,8 @@ class JobBoard:
     
                         jobs.append(new_job)
                         jobs_seen.add(job["id"])
-                print("end of page " + str(page))
             except Exception as error:
                 print("error, no jobs?" + str(error))
                 continue
+        print("end of page " + str(page))
         return jobs
