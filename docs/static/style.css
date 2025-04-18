@@ -309,7 +309,7 @@ p {
     }
 
     .grid {
-        grid-template-columns: 45% 70%;
+        grid-template-columns: 50% 70%;
         gap: 0;
     }
 

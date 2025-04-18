@@ -38,7 +38,7 @@ for i in range(len(jsons)):
     lengths.append(get_length(jsons[i]))
 
 # SEND DAILY MAIL
-resend.api_key = os.getenv("RESEND_API_KEY")
+resend.api_key = str(os.getenv("RESEND_API_KEY"))
 for email in sub_emails:
     try:
         resend.Emails.send({
