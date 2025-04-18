@@ -8,6 +8,8 @@ class JobBoard:
     def fetch_jobs(roles, page=1):
         API_KEY = os.getenv("ADZUNA_API_KEY")
         API_ID = os.getenv("ADZUNA_API_ID")
+        if not API_ID or not API_KEY:
+            raise RuntimeError("Missing Adzuna API credentials")
 
         jobs_seen = set()
         jobs = []
@@ -20,11 +22,12 @@ class JobBoard:
         for i in range(0, len(roles)):
             print("checking " + roles[i] + " role")
             try:
-                response = requests.get("https://api.adzuna.com/v1/api/jobs/gb/search/" + str(page) + "?app_id=" + API_ID + "&app_key=" + API_KEY + "&results_per_page=10&what_exclude=" + exclude + "&title_only=" + roles[i] + "&where=East%20London&distance=10&max_days_old=3&sort_by=date&salary_include_unknown=1")
+                response = requests.get("https://api.adzuna.com/v1/api/jobs/gb/search/" + str(page) + "?app_id=" + str(API_ID) + "&app_key=" + str(API_KEY) + "&results_per_page=10&what_exclude=" + exclude + "&title_only=" + roles[i] + "&where=East%20London&distance=10&max_days_old=3&sort_by=date&salary_include_unknown=1")
                 print(str(response.status_code))
+                print("API response:" + str(response.json()))
+
                 time.sleep(2.5)
 
-                print("API response:" + str(response.json()))
                 for job in response.json()["results"]:
                     if job["id"] not in jobs_seen:
                         new_job = {}
