@@ -310,7 +310,7 @@ p {
 
     .grid {
         grid-template-columns: 50% 70%;
-        gap: 0;
+        gap: 1rem;
     }
 
     p, b {

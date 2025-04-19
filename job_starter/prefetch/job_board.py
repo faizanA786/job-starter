@@ -13,7 +13,7 @@ class JobBoard:
 
         jobs_seen = set()
         jobs = []
-        exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head"
+        exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head%20chef%20graduate"
 
         today = datetime.today()
         day = today.day
