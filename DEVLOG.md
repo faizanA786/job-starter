@@ -1,3 +1,9 @@
+# 23/04/2025
+- A problem i need to deal with is if a user spams their email into the email field(s)
+- I need to add rate limiting but i cant use cloud functions currently because theres no incenctive pay for it at the moment
+- Right now iv added a temp change, email fields are disabled and so are the submit buttons upon submitting and sending the form
+- This is very weak since the abuser can just open dev tools and remove this line of code
+
 # 17/04/2025
 - Since i dont need to use flask now due to the site now being static, ill remove this dependancy and only import from jinja2
 - Ive added functionality for users to now be able to request to remove their emails off of the database

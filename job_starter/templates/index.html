@@ -92,7 +92,7 @@
                     
                         <form id="addEmailForm" class="email-alert">
                             <input id="emailInput" class="email" type="email" placeholder="addmail@gmail.com" required>
-                            <button class="email-submit" type="submit">Enable</button>
+                            <button id="email-submit" class="email-submit" type="submit">Enable</button>
                         </form>
                         <hr>
 
@@ -100,7 +100,7 @@
                         <p>Request for your email to be removed off of our database.</p>
                         <form id="delEmailForm" class="email-alert">
                             <input id="emailInput-del" class="email" type="email" placeholder="removemail@gmail.com" required>
-                            <button class="email-remove" type="submit">Remove</button>
+                            <button id="email-remove" class="email-remove" type="submit">Remove</button>
                         </form>
                     </div>
                 </div>
@@ -278,7 +278,8 @@
 
             .then(function() {
                 alert("Email sent to waiting list, will be subscribed shortly.");
-                document.getElementById("emailInput").value = "";
+                document.getElementById("emailInput").disabled = true;
+                document.getElementById("email-submit").disabled = true;
             })
             .catch(function(error) {
                 console.error("Error adding email:" + error);
@@ -301,7 +302,8 @@
 
             .then(function() {
                 alert("Email will be removed and unsubscribed shortly.");
-                document.getElementById("emailInput-del").value = "";
+                document.getElementById("emailInput-del").disabled = true;
+                document.getElementById("email-remove").disabled = true;
             })
             .catch(function(error) {
                 console.error("Error adding email:" + error);
