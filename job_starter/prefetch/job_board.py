@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 import os
 
@@ -16,7 +16,6 @@ class JobBoard:
         exclude = "experienced%20manager%20supervisor%20executive%20director%20required%20engineer%20bar%20senior%20head%20chef%20graduate"
 
         today = datetime.today()
-        day = today.day
 
         print("checking page " + str(page))
         for i in range(0, len(roles)):
@@ -33,13 +32,13 @@ class JobBoard:
                         new_job = {}
     
                         day_added = (job["created"].split("T")[0]).split("-")[-1] #only get the day of date
-                        if int(day_added) == day:
+                        if int(day_added) == today.day:
                             new_job["date"] = "Today"
-                        elif int(day_added) == day-1:
+                        elif int(day_added) == (today-timedelta(days=1)).day:
                             new_job["date"] = "Yesterday"
-                        elif int(day_added) == day-2:
+                        elif int(day_added) == (today-timedelta(days=2)).day:
                             new_job["date"] = "2 days ago"
-                        elif int(day_added) == day-3:
+                        elif int(day_added) == (today-timedelta(days=3)).day:
                             new_job["date"] = "3 days ago"
     
                         new_job["contract_time"] = job.get("contract_time")  # might be unknown
@@ -51,7 +50,7 @@ class JobBoard:
                         jobs.append(new_job)
                         jobs_seen.add(job["id"])
             except Exception as error:
-                print("error, no jobs?" + str(error))
+                print("error: " + str(error))
                 continue
         print("end of page " + str(page))
         return jobs

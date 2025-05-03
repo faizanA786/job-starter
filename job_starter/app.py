@@ -20,7 +20,7 @@ template = env.get_template("index.html")
 html = template.render(retail=retail, logistics=logistics, hospitality=hospitality)
 
 with open("docs/index.html", "w", encoding="utf-8") as f:
-    f.write(html) # THIS BUILDS INTO DOCS, CAN CAUSE MERGE CONFLICT 
+    f.write(html) # THIS BUILDS INTO DOCS, CAN CAUSE MERGE CONFLICT - PULL FROM MASTER FIRST
 
 end = time.time()
 print(str(end-start) + " seconds to create new job board")
