@@ -2,7 +2,9 @@
 
 ![Job Starter Screenshot](https://i.imgur.com/Uxiul9b.png)
 
-Job Starter is a lightweight job board targeting entry-level roles in **London**, especially in **retail**, **hospitality** and **logistics**. It fetches listings using the **Adzuna API**, provides filtering and includes **email alerts** for new jobs.
+Job Starter is a lightweight job board targeting entry-level roles in London, especially in retail, hospitality and logistics. It fetches listings using the Adzuna API, provides filtering and includes email alerts for new jobs.
+
+![Job Starter Email](https://i.imgur.com/6rbOL45.png)
 
 ### 🌐 Live Site
 [https://jobstarter.uk](https://jobstarter.uk)
@@ -18,7 +20,7 @@ Job Starter is a lightweight job board targeting entry-level roles in **London**
 
 ## Tech Stack
 
-- Frontend: **HTML**, **CSS**, **JavaScript**
-- Backend: **Python** (used locally for data processing)
-- APIs: **Adzuna API**, **Google Maps**, **Resend**
-- Deployment: **GitHub Pages**, **Firebase**, **GitHub Actions**
+- Frontend: HTML, CSS, JavaScript
+- Backend: Python (used locally for data processing)
+- APIs: Adzuna API, Google Maps, Resend
+- Deployment: GitHub Pages, Firebase, GitHub Actions
