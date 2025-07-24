@@ -58,49 +58,28 @@ function isCheckedIndustry(event) { // INDUSTRY
     }
 }
 
-function matchTitle(event) { // SEARCH
+function matchTitle(event) {
     let jobContainers = document.querySelectorAll(".job-container");
-    let entry = document.getElementById("searchEntry").value;
+    let searchInput = event.target.value.trim().toLowerCase();
 
-    if (event.key == "Enter") {
-        triggerAnimation();
-
-        if (entry.trim() == "") {
-            console.log("Returning default job list");
-
-            jobContainers.forEach(function(container) {
-                container.style.display = "block";
-            });
-        }
-        else {
-            entry = entry.trim().split(" ");
-
-            jobContainers.forEach(function(container) {
-                container.style.display = "none";
-
-                let job = container.querySelector("#job-title");
-                let title = job.querySelector("b").textContent;
-                let keywords = title.split(" ");
-
-                for (let i=0; i<entry.length; i++) { // N^2 time complexity, improve this later!
-                    let hide = false;
-                    for (let j=0; j<keywords.length; j++) {
-                        if (keywords[j].toLowerCase() == entry[i].toLowerCase()) {
-                            container.style.display = "block";
-                            hide = true;
-                            break;  
-                        }
-                        if (hide) {
-                            break;
-                        }
-                    }
-                }
-            });
-        }
+    if (searchInput === "") {
+        //show all jobs if input is empty
+        jobContainers.forEach(container => {
+            container.style.display = "block";
+        });
+        return;  
     }
+
+    triggerAnimation();
+
+    jobContainers.forEach(container => {
+        const jobTitle = container.querySelector("#job-title b").textContent.toLowerCase();
+        const match = searchInput.split(" ").some(word => jobTitle.includes(word));
+        container.style.display = match ? "block" : "none";
+    });
 }
 
-document.getElementById("searchEntry").addEventListener("keydown", matchTitle)
+document.getElementById("searchEntry").addEventListener("input", matchTitle);
 
 document.getElementById("retail").addEventListener("click", isCheckedIndustry);
 document.getElementById("logistics").addEventListener("click", isCheckedIndustry);

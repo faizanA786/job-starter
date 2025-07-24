@@ -42,6 +42,12 @@ class JobBoard:
                             new_job["date"] = "3 days ago"
     
                         new_job["contract_time"] = job.get("contract_time")  # might be unknown
+
+                        # if len(job["title"]) > 30:
+                        #     new_job["title"] = job["title"][:31] + "..."
+                        # else:
+                        #     new_job["title"] = job["title"]
+
                         new_job["title"] = job["title"]
                         new_job["company"] = job["company"]["display_name"]
                         new_job["location"] = job["location"]["display_name"]

@@ -97,7 +97,6 @@ a:hover {
     gap: 0.5rem;
     align-items: center;
     margin-left: 0.5rem;
-
 }
 
 input[type="checkbox"] {
@@ -183,10 +182,11 @@ input[type="checkbox"] {
 
 .search {
     width: 20vw;
-    height: 2vw;
+    height: 2.2vw;
     border: 0.12rem solid black;
     border-radius: 0.5rem;
     font-size: 1.2vw;
+    padding: 0.2rem 0.5rem;
 }
 
 .search::placeholder {
