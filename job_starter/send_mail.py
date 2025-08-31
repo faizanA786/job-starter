@@ -105,4 +105,9 @@ for email in sub_emails:
         time.sleep(1)
 
     except Exception as error:
-        print("failed to send mail to " + email + ": " + error)
+        print("failed to send mail to " + email + ": " + str(error))
+         
+        # delete invalid email
+        get_docs = subscribed.where(filter=("email", "==", email)).stream()
+        for sub_doc in get_docs:
+            subscribed.document(sub_doc.id).delete()
