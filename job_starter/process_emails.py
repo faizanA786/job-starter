@@ -31,7 +31,7 @@ for doc in delete_docs:
         get_doc = subscribed.where(filter=("email", "==", del_email)).stream()
         for sub_doc in get_doc:
             subscribed.document(sub_doc.id).delete()
-    print("removed " + del_email)
+    # print("removed " + del_email)
     delete.document(doc.id).delete()
 
 # ADD/REMOVE DUPLICATE EMAILS
@@ -42,10 +42,10 @@ if len(subscribed_docs) < 100:
         time_sent = fields.get("timestamp")
 
         if pen_email in sub_emails:
-            print("removed " + pen_email + ", already subscribed")
+            # print("removed " + pen_email + ", already subscribed")
             pending.document(doc.id).delete()
         else:
-            print("added " + pen_email)
+            # print("added " + pen_email)
             subscribed.add({
                 "email": pen_email,
                 "time_sent": time_sent,
