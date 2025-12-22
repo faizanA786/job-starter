@@ -101,11 +101,12 @@ for email in sub_emails:
                 </html>
             """
         })
-        print("mail sent to " + email)
+        # print("mail sent to " + email)
         time.sleep(1)
 
     except Exception as error:
-        print("failed to send mail to " + email + ": " + str(error))
+        print(str(error))
+        # print("failed to send mail to " + email + ": " + str(error))
          
         # delete invalid email(s)
         get_docs = subscribed.where("email", "==", email).stream()
