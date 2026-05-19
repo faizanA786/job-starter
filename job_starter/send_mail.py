@@ -39,6 +39,7 @@ for i in range(len(jsons)):
 
 # SEND DAILY MAIL
 resend.api_key = str(os.getenv("RESEND_API_KEY"))
+mails_sent = 0
 for email in sub_emails:
     try:
         resend.Emails.send({
@@ -102,13 +103,15 @@ for email in sub_emails:
             """
         })
         # print("mail sent to " + email)
+        mails_sent += 1
         time.sleep(1)
 
     except Exception as error:
         print(str(error))
         # print("failed to send mail to " + email + ": " + str(error))
          
-        # delete invalid email(s)
-        get_docs = subscribed.where("email", "==", email).stream()
-        for sub_doc in get_docs:
-            subscribed.document(sub_doc.id).delete()
+        # # delete invalid email(s) - DELETED ALL RECORDS WHEN DOMAIN BECAME SUDDENLY UNVERIFIED
+        # get_docs = subscribed.where("email", "==", email).stream()
+        # for sub_doc in get_docs:
+        #     subscribed.document(sub_doc.id).delete()
+print("mails sent: " + str(mails_sent))

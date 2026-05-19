@@ -1,3 +1,6 @@
+restore.py
+emails.csv
+
 test/
 firebase-service-account.json
 retail_data.json
